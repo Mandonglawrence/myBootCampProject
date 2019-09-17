@@ -1,0 +1,33 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "first_name": "Lawrence",
+      "last_name": "Mandong",
+      "phone": "08064344075",
+      "email": "mandonglawrence@gmail.com",
+      "password": "nearyou",
+      "isAdmin": true
+    },
+    {
+      "fname": "Lucky",
+      "lname": "Josh",
+      "mobile": "0908787666",
+      "email": "joshl@gmail.com",
+      "pass": "12343",
+      "id": 2
+    }
+  ],
+  "food": [
+    {
+      "id": 1,
+      "name": "Amala",
+      "origin": "-Nigerian-African",
+      "price": 2500,
+      "image": ""
+    }
+  ],
+  "orders": [
+    {}
+  ]
+}
