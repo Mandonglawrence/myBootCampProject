@@ -37,8 +37,13 @@
                          if(user.length){
                           const [data] = user;
                           if(data.pass === pass){
-                            // return alert(data.fname);
-                            window.location = "../index.html"
+                              if(data.isAdmin === true){
+                                window.location = "./admin.html"
+                              }else{
+                                // return alert(data.fname);
+                                window.location = "./users.html"
+                              }
+                            
                           }else{
                          return     alert("Invalid email or password");
                           }
