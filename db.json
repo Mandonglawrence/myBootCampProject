@@ -39,26 +39,18 @@
   ],
   "food": [
     {
-      "name": "Fufu",
+      "name": "corn",
       "origin": "Nigerian-African",
-      "price": "3000",
-      "imgUrl": "C:\\Users\\MANDONG\\Desktop\\folders\\Afams real.png",
-      "id": 1,
-      "status": "available"
+      "price": "800",
+      "imgUrl": "hhkahkhkdhs",
+      "id": 1
     },
     {
       "name": "Amala",
       "origin": "Nigerian-African",
       "price": "3000",
-      "imgUrl": "hhkahkhkdhs",
+      "imgUrl": "hdjkjdhi",
       "id": 2
-    },
-    {
-      "name": "corn",
-      "origin": "American",
-      "price": "3000",
-      "imgUrl": "C:\\Users\\MANDONG\\Desktop\\folders\\Afams real.png",
-      "id": 3
     }
   ],
   "orders": [
