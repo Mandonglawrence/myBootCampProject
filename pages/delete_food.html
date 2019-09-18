@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/styles.css">
+    <title>Delete Food</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row col-lg-12">
+        <form action="">
+                <label for="fname">Food Name:
+                        <input type="text" name="name" id="fname" class="form-control" required>
+                    </label><br>
+            
+            <button type="submit" class="form-control btn btn-success">Delete Food</button>
+        </form>
+    </div>
+    </div>
+
+    <script src="../js/jquery.js"></script>
+    <script>
+    $(document).ready(function(){
+        $('form').on('submit',function(e){
+            e.preventDefault();
+            
+            //lets create our variables
+            let name = $('#fname').val();
+             let id;
+                 $.ajax({
+                     url:"http://localhost:3000/food?name="+name,
+                     success:function(result){
+                         if(result.length === 0){
+                           return  alert("Food does not exist");
+                         }else{
+                             id = result[0].id
+                            $.ajax({
+                    url:"http://localhost:3000/food/"+id,success:function(result){console.log(result)},
+                    method:"DELETE",
+                });
+                         }
+                     },
+                     method:"GET"
+                 });
+                
+       
+                 $('#fname').val("") });
+    });
+        </script>
+    </body>
+    </html>

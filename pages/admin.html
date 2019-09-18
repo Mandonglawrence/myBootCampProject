@@ -5,13 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Admin Dashboard</title>
-    <link rel="stylesheet" href="./css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
-    <h1>Welcome</h1>
+    <h1></h1>
+<div class="panel panel-default">
+    <div class="panel-heading panel-success">Panel heading</div>
+    <div class="panel-body panel-danger">A Basic Panel</div>
+</div>
 
-    <script src="./js/jquery.js"></script>
-    <script></script>
+    <script src="../js/jquery.js"></script>
+    <script>
+       if(sessionStorage){
+        const user = sessionStorage.userData;
+        let userl = sessionStorage.userDatal;
+    // console.log(user)
+    $('h1').html('Welcome'+" "+"Admin"+" "+"("+user+" "+userl+")")
+       }else{
+            $('h1').html("Welcome"+" "+"There!");
+        }
+    </script>
 </body>
 </html>

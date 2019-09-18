@@ -2,11 +2,11 @@
   "users": [
     {
       "id": 1,
-      "first_name": "Lawrence",
-      "last_name": "Mandong",
-      "phone": "08064344075",
+      "fname": "Lawrence",
+      "lname": "Mandong",
+      "mobile": "08064344075",
       "email": "mandonglawrence@gmail.com",
-      "password": "nearyou",
+      "pass": "near333",
       "isAdmin": true
     },
     {
@@ -15,16 +15,50 @@
       "mobile": "0908787666",
       "email": "joshl@gmail.com",
       "pass": "12343",
+      "isAdmin": false,
       "id": 2
+    },
+    {
+      "fname": "Dala",
+      "lname": "Peter",
+      "mobile": "080889234",
+      "email": "dala@gmail.com",
+      "pass": "pet4all",
+      "isAdmin": false,
+      "id": 3
+    },
+    {
+      "fname": "Biche",
+      "lname": "Nas",
+      "mobile": "080889234",
+      "email": "biche@gmail.com",
+      "pass": "55555",
+      "isAdmin": "false",
+      "id": 4
     }
   ],
   "food": [
     {
+      "name": "Fufu",
+      "origin": "Nigerian-African",
+      "price": "3000",
+      "imgUrl": "C:\\Users\\MANDONG\\Desktop\\folders\\Afams real.png",
       "id": 1,
+      "status": "available"
+    },
+    {
       "name": "Amala",
-      "origin": "-Nigerian-African",
-      "price": 2500,
-      "image": ""
+      "origin": "Nigerian-African",
+      "price": "3000",
+      "imgUrl": "hhkahkhkdhs",
+      "id": 2
+    },
+    {
+      "name": "corn",
+      "origin": "American",
+      "price": "3000",
+      "imgUrl": "C:\\Users\\MANDONG\\Desktop\\folders\\Afams real.png",
+      "id": 3
     }
   ],
   "orders": [
