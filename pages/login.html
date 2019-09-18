@@ -34,14 +34,27 @@
                  $.ajax({
                      url:"http://localhost:3000/users?email="+email,
                      success:function(user){
+                        console.log(user)
                          if(user.length){
                           const [data] = user;
                           if(data.pass === pass){
                               if(data.isAdmin === true){
+                                if(sessionStorage){
+                                    sessionStorage.userData=user[0].fname;
+                                    sessionStorage.userDatal=user[0].lname;
+                                }
                                 window.location = "./admin.html"
                               }else{
                                 // return alert(data.fname);
-                                window.location = "./users.html"
+                                //let remove for every new
+                                // localStorage.removeItem(userData);
+                                if(sessionStorage){
+                                    sessionStorage.userData=user[0].fname;
+                                    sessionStorage.userDatal=user[0].lname;
+                                }
+                               
+                                //console.log(localStorage.userData)
+                                window.location = "./user.html"
                               }
                             
                           }else{
@@ -53,8 +66,9 @@
                      method:"GET"
                  });
                 
-          
-        });
+          //reset email field
+                 $('#email').val("");
+                  });
     });
     </script>
 </body>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>All Food</title>
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <h1>Available Food</h1>
+    <table class="table">
+       
+        <thead> 
+            <th scope="col">S/N</th>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Origin</th>
+        </head>
+            <tbody id="tb">
+
+        </tbody>
+    </table>
+        <script src="../js/jquery.js"></script>
+        <script>
+            $(document).ready(function(){
+                
+            })
+           $.ajax({
+                     url:"http://localhost:3000/food",
+                     success:function(result){
+                         if(result.length){
+                           let output = $("#tb");
+                           console.log(result)
+                           result.forEach(food=>{
+                              
+                               output.append(`<tr>
+                                         <td> ${food.id}</td>
+                                         <td> ${food.name}</td>
+                                        <td> ${food.price}</td>
+                                        <td> ${food.origin}</td>
+                                        </tr>`);
+                                      
+                                       
+                           })
+                         }
+                         
+                     },
+                     method:"GET"
+                 });
+        </script>
+</body>
+</html>
