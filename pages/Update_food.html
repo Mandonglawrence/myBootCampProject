@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../css/styles.css">
-    <title>Delete Food</title>
+    <title>Update Food</title>
 </head>
 <body>
     <div class="container">
@@ -15,8 +15,18 @@
                 <label for="fname">Food Name:
                         <input type="text" name="name" id="fname" class="form-control" required>
                     </label><br>
+                    <label for="origin">Food Origin:
+                            <input type="text" name="origin" id="origin" class="form-control" required>
+                        </label><br>
+            <label for="price">Price:
+                <input type="text" name="price" id="price" class="form-control" required>
+            </label><br>
+
+            <label for="imgu">Image Url:
+                <input type="text" name="imgu" id="imgu" class="form-control" required>
+            </label><br>
             
-            <button type="submit" class="form-control btn btn-success">Delete Food</button>
+            <button type="submit" class="form-control btn btn-success">Update Food</button>
         </form>
     </div>
     </div>
@@ -29,25 +39,47 @@
             
             //lets create our variables
             let name = $('#fname').val();
+            let origin = $('#origin').val();
+            let price = $('#price').val();
+            let imgUrl = $('#imgu').val();
              let id;
                  $.ajax({
                      url:"http://localhost:3000/food?name="+name,
                      success:function(result){
                          if(result.length === 0){
-                           return  alert("Food does not exist");
+                           alert("Food does not exist");
+                            //reset all values
+                            $('#fname').val("");
+                            $('#origin').val("");
+                            $('#price').val("");
+                            $('#imgu').val(""); 
                          }else{
                              id = result[0].id
-         $.ajax({
+                            $.ajax({
                     url:"http://localhost:3000/food/"+id,success:function(result){console.log(result)},
-                    method:"DELETE",
+                    method:"PUT",
+                    data:{
+                        name,
+                        origin,
+                        price,
+                        imgUrl
+                    },
                 });
                          }
+                        
                      },
                      method:"GET"
                  });
                 
-       
-                 $('#fname').val("") });
+        
+       //reset all values
+       $('#fname').val("");
+            $('#origin').val("");
+            $('#price').val("");
+            $('#imgu').val("");
+
+           
+             });
     });
         </script>
     </body>
