@@ -20,6 +20,7 @@
             </label><br>
             <button type="submit" class="form-control btn btn-success col-sm-12">Sign in</button>
         </form>
+        <h3>Not registered? <a href="/pages/signup.html">Sign Up</a></h3>
     </div>
     </div>
 
@@ -51,6 +52,7 @@
                                 if(sessionStorage){
                                     sessionStorage.userData=user[0].fname;
                                     sessionStorage.userDatal=user[0].lname;
+                                    sessionStorage.userEmail=user[0].email;
                                 }
                                
                                 //console.log(localStorage.userData)

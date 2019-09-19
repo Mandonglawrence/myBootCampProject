@@ -5,3 +5,9 @@ h1{
 body{
     text-align: center;
 }
+.navbar-header{
+    height: auto;
+}
+.mini-bars {
+    height: 2em
+}

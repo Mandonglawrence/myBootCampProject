@@ -35,25 +35,65 @@
       "pass": "55555",
       "isAdmin": "false",
       "id": 4
+    },
+    {
+      "fname": "Kola",
+      "lname": "Mensa",
+      "mobile": "0908787666",
+      "email": "mensa@gmail.com",
+      "pass": "kola",
+      "isAdmin": "false",
+      "id": 5
     }
   ],
   "food": [
     {
-      "name": "corn",
-      "origin": "Nigerian-African",
-      "price": "800",
-      "imgUrl": "hhkahkhkdhs",
+      "name": "amala",
+      "origin": "American",
+      "price": "3000",
+      "imgUrl": "C:\\Users\\MANDONG\\Desktop\\folders\\Afams real.png",
       "id": 1
     },
     {
-      "name": "Amala",
+      "name": "fufu",
       "origin": "Nigerian-African",
       "price": "3000",
-      "imgUrl": "hdjkjdhi",
+      "imgUrl": "C:\\Users\\MANDONG\\Desktop\\folders\\Afams real.png",
       "id": 2
     }
   ],
   "orders": [
-    {}
+    {
+      "id": 1,
+      "food_name": "garri",
+      "owner_name": "James",
+      "owner_email": "jb@gmail.com",
+      "food_price": 3900,
+      "order_date": "12/09/45"
+    },
+    {
+      "food_name": "amala",
+      "food_price": "3000",
+      "owner_email": "joshl@gmail.com",
+      "owner_name": "Lucky",
+      "order_date": "Thu Sep 19 2019 16:23:41 GMT+0100 (West Africa Standard Time)",
+      "id": 2
+    },
+    {
+      "food_name": "amala",
+      "food_price": "3000",
+      "owner_email": "joshl@gmail.com",
+      "owner_name": "Lucky",
+      "order_date": "Thu Sep 19 2019 16:29:13 GMT+0100 (West Africa Standard Time)",
+      "id": 3
+    },
+    {
+      "food_name": "fufu",
+      "food_price": "3000",
+      "owner_email": "joshl@gmail.com",
+      "owner_name": "Lucky",
+      "order_date": "Thu Sep 19 2019 16:41:56 GMT+0100 (West Africa Standard Time)",
+      "id": 4
+    }
   ]
 }
