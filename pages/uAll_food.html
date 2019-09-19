@@ -27,6 +27,7 @@
             $(document).ready(function(){
                 
             })
+            let name;
            $.ajax({
                      url:"http://localhost:3000/food",
                      success:function(result){
@@ -34,33 +35,40 @@
                            let output = $("#tb");
                            console.log(result)
                            result.forEach(food=>{
-                              
+                              console.log(food)
+
                                output.append(`<tr>
                                          <td> ${food.id}</td>
                                          <td> ${food.name}</td>
                                         <td> ${food.price}</td>
                                         <td> ${food.origin}</td>
-                                        <td><a href="Update_food.html" ><button class="edit btn" data-id=${food.id}>edit</button></a></td>
-                                        <td><button class="del btn" data-id=${food.id}>Delete</button></td>
+                                        <td><button class = "btn btn primary order" data-price=${food.price} data-id = ${food.id} data-name=${food.name}>Order</button></td>
                                         </tr>`);
                                       
-                                       
+                   
                            })
-                           //add delete function to my delete button
-                           $('.del').on('click',function(e){
-                               //console.log(e.target.dataset.id)
-                               //confirm before deleting
-                               if(confirm("Sure you want to delete food?")){
-                                $.ajax({
-                            url:"http://localhost:3000/food/"+e.target.dataset.id,success:function(result){
-                                // console.log(result)
-                               
-                            },
-                            method:"DELETE",
-                              });
-                               }
-                               
-                           })
+                           $('.order').on('click',function(e){
+                            name = e.target.dataset.name;
+                    if(confirm('sure?')){
+                        alert('You have ordered for one plate of '+' '+name.toUpperCase());
+                        $.ajax({
+                           url:"http://localhost:3000/orders",
+                           success:function(result){
+                           },
+                           method:"POST",
+                           data:{
+                            "food_name":name,
+                            "food_price":e.target.dataset.price,
+                            "owner_email":sessionStorage.userEmail,
+                            "owner_name":sessionStorage.userData,
+                            "order_date":new Date()
+
+                           }
+                        });
+                      } 
+                     });
+                 
+                           
                          }
                          
                      },

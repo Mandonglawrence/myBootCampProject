@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Ordered Food</title>
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <h1>Ordered Food</h1>
+    <table class="table">
+       
+        <thead> 
+            <th scope="col">Food Name</th>
+            <th scope="col">Ordered  By</th>
+            <th scope="col">Email</th>
+            <th scope="col">price</th>
+            <th scope="col">Date</th>
+        </head>
+            <tbody id="tb">
+
+        </tbody>
+    </table>
+        <script src="../js/jquery.js"></script>
+        <script>
+            $(document).ready(function(){
+                
+            })
+           $.ajax({
+                     url:"http://localhost:3000/orders",
+                     success:function(result){
+                         if(result.length){
+                           let output = $("#tb");
+                           console.log(result)
+                           result.forEach(order=>{
+                              
+                               output.append(`<tr>
+                                         <td> ${order.food_name}</td>
+                                         <td> ${order.owner_name}</td>
+                                         <td> ${order.owner_email}</td>
+                                        <td> NGN${order.food_price}</td>
+                                        <td> ${order.order_date}</td>
+                                            </tr>`);
+                                      
+                                       
+                           })
+                           
+                         }
+                         
+                     },
+                     method:"GET"
+                 });
+        </script>
+</body>
+</html>

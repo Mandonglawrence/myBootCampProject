@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/styles.css">
+    <title>Search for food</title>
+    <style>
+    #search{
+        display: none;
+    }
+    </style>
+</head>
+<body>
+<div class="container">
+        <div class="row col-lg-12">
+        <form action="">
+                <label for="foodname">Search Food:
+                        <input type="text" name="foodname" id="fname" class="form-control  col-lg-12" required>
+                    </label>
+                    
+            <button type="submit" class="form-control btn btn-success  col-lg-12">Submit</button>
+        </form>
+    </div>
+    <div>
+            <table class="table" id="search"> 
+                    <thead>
+                    <th>Name</th>
+                    <th>Origin</th>
+                    <th>Price</th>
+                    <th>Action</th>
+                    </thead>
+                    <tbody class="qresult">
+                        </tbody>
+                    </table>
+    </div>
+    </div>
+    <script src="../js/jquery.js"></script>
+    <script>
+    $(document).ready(function(){
+$('form').on('submit',function(e){
+    e.preventDefault();
+    let field = $('#fname').val();
+    let qres = $('.qresult');
+        console.log(field);
+        $.ajax({
+            url:"http://localhost:3000/food?name="+field.toLowerCase(),
+            success:function(result){
+                if(result.length){
+                    console.log(result);
+                    const [data] = result;
+                    qres.append(`
+                    <tr>
+                    <td>${data.name}</td>
+                    <td>${data.origin}</td>
+                    <td>${data.price}</td>
+                    <td><button class = "btn btn primary order" data-id = ${data.id}>Order</button></td>
+                    </tr
+                    `);
+                    $('#search').show();
+                    $('.order').on('click',function(){
+                    if(confirm('sure?')){
+                        
+                alert('You have ordered for one plate of'+' '+data.name.toUpperCase());
+                $.ajax({
+                           url:"http://localhost:3000/orders",
+                           success:function(result){
+                           },
+                           method:"POST",
+                           data:{
+                            "food_name":data.name,
+                            "food_price":data.price,
+                            "owner_email":sessionStorage.userEmail,
+                            "owner_name":sessionStorage.userData,
+                            "order_date":new Date()
+
+                           }
+                        });
+                      } 
+                });
+                
+                }else{
+                    alert(`${field} Not available at the moment`)
+                    qres.html('');
+                    $('#search').hide();
+                }
+               
+               
+            }
+        })
+        $('#fname').val('');
+
+});
+    });
+    </script>
+</body>
+</html>
