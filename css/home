@@ -1,0 +1,41 @@
+
+body{
+    text-align: center;
+}
+.navbar-header{
+    height: auto;
+}
+.mini-bars {
+    height: 2em;
+}
+#menu{
+    width: 10%;
+    background-color: black;
+    height: 100%;
+}
+#menu span{
+    height: 50%;
+    width: 100%;
+    float: left;
+}
+ nav{
+     width: 100%;
+     background-color: black;
+     height:auto;
+        }
+        ul{
+            background-color: black;
+            float: right;
+        }
+    ul li{
+        list-style-type: none;
+        float: left;
+        margin-left: 1em
+    }
+    ul li a{
+        color: aqua;
+        text-decoration:none;
+    }
+    h1{
+        clear: both
+    }

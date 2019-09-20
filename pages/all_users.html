@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>All Food</title>
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <h1>Registered Users</h1>
+    <table class="table">
+       
+        <thead> 
+            <th scope="col">ID</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last name</th>
+            <th scope="col">Mobile Number</th>
+            <th scope="col">Email</th>
+        </head>
+            <tbody id="tb">
+
+        </tbody>
+    </table>
+        <script src="../js/jquery.js"></script>
+        <script>
+            $(document).ready(function(){
+                
+            })
+           $.ajax({
+                     url:"http://localhost:3000/users",
+                     success:function(result){
+                         if(result.length){
+                           let output = $("#tb");
+                           console.log(result)
+                           result.forEach(user=>{
+                              
+                               output.append(`<tr>
+                                         <td> ${user.id}</td>
+                                         <td> ${user.fname}</td>
+                                        <td> ${user.lname}</td>
+                                        <td> ${user.mobile}</td>
+                                        <td> ${user.email}</td>
+                                        <td><button class="del btn" data-id=${user.id}>Delete</button></td>
+                                        </tr>`);
+                                      
+                                       
+                           })
+                           //add delete function to my delete button
+                           $('.del').on('click',function(e){
+                               //console.log(e.target.dataset.id)
+                               //confirm before deleting
+                               if(confirm("Sure you want to delete User?")){
+                                $.ajax({
+                            url:"http://localhost:3000/users/"+e.target.dataset.id,success:function(result){
+                                // console.log(result)
+                               
+                            },
+                            method:"DELETE",
+                              });
+                               }
+                               
+                           })
+                         }
+                         
+                     },
+                     method:"GET"
+                 });
+        </script>
+</body>
+</html>
