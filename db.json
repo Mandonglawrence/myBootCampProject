@@ -94,6 +94,14 @@
       "owner_name": "Lucky",
       "order_date": "Thu Sep 19 2019 16:41:56 GMT+0100 (West Africa Standard Time)",
       "id": 4
+    },
+    {
+      "food_name": "amala",
+      "food_price": "3000",
+      "owner_email": "mensa@gmail.com",
+      "owner_name": "Kola",
+      "order_date": "Thu Sep 19 2019 18:39:28 GMT+0100 (West Africa Standard Time)",
+      "id": 5
     }
   ]
 }
